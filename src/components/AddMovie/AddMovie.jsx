@@ -2,7 +2,6 @@ import styles from './AddMovie.module.css';
 export default function AddMovie(props){
 
     const showAddMovie = () => {
-        setShowModal(true);
         props.onShowModal();
     }
 
