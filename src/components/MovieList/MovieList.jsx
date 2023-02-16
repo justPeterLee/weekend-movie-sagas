@@ -13,8 +13,8 @@ function MovieList() {
     }, []);
 
     return (
-        <main>
-            <h1>MovieList</h1>
+        <main className='movie-list-container'>
+            <h1 className='movie-list-title'>Movies</h1>
             <section className="movies">
                 {movies.map(movie => {
                     return (

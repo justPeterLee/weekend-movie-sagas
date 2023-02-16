@@ -1,0 +1,51 @@
+
+.pageName,.movieTitle, p {
+  color: rgb(230, 230, 230);
+  font-weight: lighter;
+}
+
+.movieTitle{
+    margin:0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.movieContainer {
+  display: flex;
+  width: 70rem;
+  gap:2.5rem;
+}
+.moviePoster {
+    height: 25rem;
+  }
+
+.genreContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.button{
+    width: 7rem;
+    height: 3rem;
+    border: 2px solid rgb(200,200,200);
+    border-radius: 10px;
+
+    color: rgb(200,200,200);
+
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+.button:hover{
+    background-color: rgb(200,200,200);
+    color: rgb(20,20,20);
+
+    cursor: pointer;
+    
+}

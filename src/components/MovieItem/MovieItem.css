@@ -1,0 +1,26 @@
+.movie-item-sub-container:hover{
+    transform: scale(1.05);
+}
+
+.movie-item-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.movie-item-sub-container{
+    transition-duration: .3s;
+
+}
+
+.poster-title-container{
+    width:12rem;
+}
+
+.poster-title{
+    font-weight: 100;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color:rgb(230,230,230)
+}
