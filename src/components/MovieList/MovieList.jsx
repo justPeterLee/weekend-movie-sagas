@@ -1,12 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './MovieList.css'
 
 import MovieItem from '../MovieItem/MovieItem';
-function MovieList() {
+import AddMovie from '../AddMovie/AddMovie';
+import AddMovieModal from '../AddMovieModal/AddMovieModal';
+function MovieList(props) {
 
     const dispatch = useDispatch();
     const movies = useSelector(store => store.movies);
+
+    const [showAddMovie, setShowAddMovie] = useState(false)
+    const showModalHandler = () => {
+        setShowAddMovie(!showAddMovie);
+    }
 
     useEffect(() => {
         dispatch({ type: 'FETCH_MOVIES' });
@@ -14,6 +21,9 @@ function MovieList() {
 
     return (
         <main className='movie-list-container'>
+            {
+                showAddMovie && <AddMovieModal onShowModal={showModalHandler}/>
+            }
             <h1 className='movie-list-title'>Movies</h1>
             <section className="movies">
                 {movies.map(movie => {
@@ -25,6 +35,7 @@ function MovieList() {
                             poster={movie.poster}/>
                     );
                 })}
+                <AddMovie onShowModal={showModalHandler}/>
             </section>
         </main>
 
