@@ -4,6 +4,7 @@ import './MovieList.css'
 
 import MovieItem from '../MovieItem/MovieItem';
 import AddMovie from '../AddMovie/AddMovie';
+import AddMovieModal from '../AddMovieModal/AddMovieModal';
 function MovieList(props) {
 
     const dispatch = useDispatch();
@@ -21,7 +22,7 @@ function MovieList(props) {
     return (
         <main className='movie-list-container'>
             {
-                showAddMovie && <h1>hello</h1>
+                showAddMovie && <AddMovieModal/>
             }
             <h1 className='movie-list-title'>Movies</h1>
             <section className="movies">
