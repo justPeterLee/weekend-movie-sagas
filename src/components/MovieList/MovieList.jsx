@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import './MovieList.css'
 
 import MovieItem from '../MovieItem/MovieItem';
+import AddMovie from '../AddMovie/AddMovie';
 function MovieList() {
 
     const dispatch = useDispatch();
@@ -25,6 +26,7 @@ function MovieList() {
                             poster={movie.poster}/>
                     );
                 })}
+                <AddMovie/>
             </section>
         </main>
 
