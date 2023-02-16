@@ -12,7 +12,7 @@ function MovieList(props) {
 
     const [showAddMovie, setShowAddMovie] = useState(false)
     const showModalHandler = () => {
-        setShowAddMovie(true);
+        setShowAddMovie(!showAddMovie);
     }
 
     useEffect(() => {
@@ -22,7 +22,7 @@ function MovieList(props) {
     return (
         <main className='movie-list-container'>
             {
-                showAddMovie && <AddMovieModal/>
+                showAddMovie && <AddMovieModal onShowModal={showModalHandler}/>
             }
             <h1 className='movie-list-title'>Movies</h1>
             <section className="movies">

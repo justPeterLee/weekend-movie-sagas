@@ -22,7 +22,7 @@ router.get("/:id", (req, res) => {
 });
 
 router.get("/", (req, res) => {
-  const queryText = `SELECT "name" FROM "genres"`;
+  const queryText = `SELECT * FROM "genres"`;
   pool
     .query(queryText)
     .then((response) => {
