@@ -6,21 +6,29 @@
     width: 12rem;
 }
 .circle{
-    height:4rem;
-    width: 4rem;
+    height:2rem;
+    width: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 100%;
+    border:none;
+    background-color: transparent;
+    background-color: rgb(50, 50, 50);
 
-    transition: background-color .1s ease;
+    transition: background-color .25s ease;
+    transition: width .25s, height .25s;
+    padding: 0;
 }
 .plus{
+    margin-top: 18.8px;
     color:rgb(230,230,230);
     font-weight: 100;
 }
 
 .circle:hover{
     background-color: rgb(50, 50, 50);
+    height: 4rem;
+    width: 4rem;
     cursor: pointer;
 }
