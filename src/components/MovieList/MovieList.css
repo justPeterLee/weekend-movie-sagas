@@ -4,9 +4,7 @@
 }
 
 
-.movies:hover{
-    cursor: pointer;
-}
+
 
 .movie-list-container{
     display: flex;

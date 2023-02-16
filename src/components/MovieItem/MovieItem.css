@@ -9,6 +9,9 @@
     align-items: center;
 
 }
+.movie-item-container:hover{
+    cursor: pointer;
+}
 .movie-item-sub-container{
     transition-duration: .3s;
 
