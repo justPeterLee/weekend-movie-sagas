@@ -44,8 +44,8 @@ export default function AddMovieModal(props) {
           </div>
         </div>
 
-        <div className={styles.descrption}>
-          <p className={styles.descrptionTitle}>description</p>
+        <div className={styles.descrptionContainer}>
+          <p className={styles.descrptionTitle}>Description</p>
           <textarea className={styles.descriptionText}/>
         </div>
 

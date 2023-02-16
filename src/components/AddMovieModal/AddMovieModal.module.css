@@ -1,7 +1,10 @@
 .background{
     position: absolute;
-    width: 100%;
-    height: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom:-30%;
+
 
     background-color: rgb(20,20,20,.8);
 
@@ -9,19 +12,97 @@
     justify-content: center;
     align-items: center;
 }
+
 .container{
     width: 40rem;
     height: 40rem;
     background-color: rgb(15,15,15);
     border-radius: 10px;
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 1.5rem;
     z-index: 1;
 }
+
+
+
 .genreContainerInput{
     display: grid;
-    grid-template-columns: repeat(4, 10rem);
+    grid-template-columns: repeat(4, 9rem);
+    gap:5px;
 }
 .genreName{
     color:rgb(200,200,200);
     font-weight: 100;
+}
+
+.titleInput{
+    border: none;
+    border-bottom: 1px solid rgb(230,230,230);
+    background-color: transparent;
+    width: 20rem;
+    transition: width 1s;
+
+    color: rgb(200,200,200);
+    font-size: 20px;
+}
+.titleInput:focus{
+    width: 30rem;
+    outline: none;
+}
+
+
+.posterInput{
+    background-color: aliceblue;
+    width: 87px;
+    border-radius: 5px;
+}
+.titleTitle, .posterTitle, .descrptionTitle{
+    margin:0;
+    margin-bottom: 6px;
+}
+
+.titleContainer,.posterContainer,.genreContainer, .descrptionContainer{
+    width: 33rem;
+}
+
+.genreName{
+    font-size: small;
+}
+
+.descriptionText{
+    resize: none;
+    border: 1px solid rgb(200,200,200);
+    background-color: transparent;
+    width: 100%;
+    height: 10rem;
+
+    color: rgb(200,200,200);
+    font-size: 15px;
+}
+
+.addMovieButton, .cancleButton{
+    width: 5rem;
+    height: 2.3rem;
+    border-radius: 5px;
+
+    border: 1px solid rgb(230,230,230);
+    background-color: transparent;
+    color:rgb(200,200,200);
+    transition: background-color .2s ease;
+}
+
+.addMovieButton:hover{
+    background-color: rgb(230,230,230);
+    color: rgb(20,20,20);
+    cursor: pointer;
+}
+.cancleButton:hover{
+    background-color: rgb(230,230,230);
+    color: rgb(20,20,20);
+    cursor: pointer;
 }
