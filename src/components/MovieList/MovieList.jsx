@@ -4,10 +4,15 @@ import './MovieList.css'
 
 import MovieItem from '../MovieItem/MovieItem';
 import AddMovie from '../AddMovie/AddMovie';
-function MovieList() {
+function MovieList(props) {
 
     const dispatch = useDispatch();
     const movies = useSelector(store => store.movies);
+
+    const [showAddMovie, setShowAddMovie] = useState(false)
+    const showModalHandler = () => {
+        setShowAddMovie(true);
+    }
 
     useEffect(() => {
         dispatch({ type: 'FETCH_MOVIES' });
@@ -15,6 +20,9 @@ function MovieList() {
 
     return (
         <main className='movie-list-container'>
+            {
+                showAddMovie && <h1>hello</h1>
+            }
             <h1 className='movie-list-title'>Movies</h1>
             <section className="movies">
                 {movies.map(movie => {
@@ -26,7 +34,7 @@ function MovieList() {
                             poster={movie.poster}/>
                     );
                 })}
-                <AddMovie/>
+                <AddMovie onShowModal={showModalHandler}/>
             </section>
         </main>
 
