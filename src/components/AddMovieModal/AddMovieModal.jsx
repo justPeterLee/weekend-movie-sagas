@@ -21,36 +21,37 @@ export default function AddMovieModal(props) {
   return (
     <div className={styles.background} onClick={()=>{if(closeModal){console.log('asdf');props.onShowModal()}}}>
       <div className={styles.container} onMouseEnter={()=>{setCloseModal(false)}} onMouseLeave={()=>{setCloseModal(true)}}>
-        <div>
-          <p>Title</p>
-          <input />
+        
+        <div className={styles.titleContainer}>
+          <p className={styles.titleTitle}>Title</p>
+          <input type="text" className={styles.titleInput}/>
         </div>
 
-        <div>
-          <p>Poster</p>
-          <input type="file"/>
+        <div className={styles.posterContainer}>
+          <p className={styles.posterTitle}>Poster</p>
+          <input type="file" className={styles.posterInput}/>
         </div>
 
-        <div>
-          <p>Genres</p>
+        <div className={styles.genreContainer}>
+          <p className={styles.genreTitle}>Genres</p>
           <div className={styles.genreContainerInput}>
           {genres.map((genre) => (
             <div key={genre.id} className={styles.genreSubContainerInput}>
-              <input type="checkbox" value={`${genre.name}`} />
+              <input type="checkbox" value={`${genre.name}`} className={styles.genreInput}/>
               <label className={styles.genreName}>{genre.name}</label>
             </div>
           ))}
           </div>
         </div>
 
-        <div>
-          <p></p>
-          <textarea />
+        <div className={styles.descrption}>
+          <p className={styles.descrptionTitle}>description</p>
+          <textarea className={styles.descriptionText}/>
         </div>
 
-        <div>
-          <button>add movie</button>
-          <button onClick={()=>{props.onShowModal()}}>cancel</button>
+        <div className={styles.buttonContainer}>
+          <button className={styles.addMovieButton}>add movie</button>
+          <button onClick={()=>{props.onShowModal()}} className={styles.cancleButton}>cancel</button>
         </div>
       </div>
     </div>
