@@ -10,7 +10,7 @@ export default function SortBy() {
   };
 
   const filterGenre = (event) => {
-    dispatch({type:"FILTER_BY_GENRES"})
+    dispatch({type:"FILTER_BY_GENRES", payload: event.target.value})
   }
   useEffect(() => {
     fetchGenre();
