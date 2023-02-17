@@ -57,9 +57,9 @@
 
 
 .posterInput{
-    background-color: aliceblue;
-    width: 87px;
     border-radius: 5px;
+    background-color: transparent;
+    color: rgb(200,200,200);
 }
 .titleTitle, .posterTitle, .descrptionTitle{
     margin:0;
@@ -105,4 +105,46 @@
     background-color: rgb(230,230,230);
     color: rgb(20,20,20);
     cursor: pointer;
+}
+
+
+
+.createSub{
+    margin-top: 3px;
+    display: flex;
+    align-items: center;
+    width: 6rem;
+    border-radius: 2px;
+    padding-bottom: 2px;
+
+    transition: background-color .2s ease;
+}
+.createText{
+    font-size: small;
+
+}
+.squarePlus, .createText{
+    margin: 0;
+}
+.squarePlus{
+    width:13px;
+    height: 13px;
+    /* border: 2px solid rgb(150,150,150) ; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-left: 2px;
+    margin-right: 5px;
+
+    border-radius: 2px;
+
+    font-size: small;
+}
+
+.createSub:hover{
+    background-color: rgb(150,150,150);
+    cursor: pointer;
+
 }
