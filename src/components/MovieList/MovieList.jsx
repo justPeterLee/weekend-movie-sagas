@@ -10,14 +10,18 @@ function MovieList(props) {
 
     const dispatch = useDispatch();
     const movies = useSelector(store => store.movies);
+    const genreFilter = useSelector(store => store.filteredGenre);
 
+    
     const [showAddMovie, setShowAddMovie] = useState(false)
     const showModalHandler = () => {
         setShowAddMovie(!showAddMovie);
     }
 
     useEffect(() => {
-        dispatch({ type: 'FETCH_MOVIES' });
+        if(genreFilter.length === 0){
+            dispatch({ type: 'FETCH_MOVIES' });
+        }
     }, []);
 
     return (
