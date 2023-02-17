@@ -14,7 +14,9 @@ export default function SortBy(){
         <div>
             <form>
                 <label>genre: </label>
-                <option></option>
+                {genres.map((genre)=>(
+                    <option value={genre.id}>{genre.name}</option>
+                ))}
             </form>
         </div>
     )
