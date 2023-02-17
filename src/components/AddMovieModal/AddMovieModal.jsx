@@ -29,29 +29,6 @@ export default function AddMovieModal(props) {
     dispatch({type:"POST_NEW_MOVIE", payload: newMovieData})
   };
 
-  const [baseImage, setBaseImage] = useState("");
-  let base64;
-  const uploadImage = async (e) => {
-    const file = e.target.files[0];
-    base64 = await convertBase64(file);
-    await setBaseImage(base64);
-  };
-
-  const convertBase64 = (file) => {
-    return new Promise((resolve, reject) => {
-      const fileReader = new FileReader();
-      fileReader.readAsDataURL(file);
-
-      fileReader.onload = () => {
-        resolve(fileReader.result);
-      };
-
-      fileReader.onerror = (error) => {
-        reject(error);
-      };
-    });
-  };
-
   useEffect(() => {
     fetchGenre();
   }, []);
