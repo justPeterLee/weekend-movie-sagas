@@ -5,6 +5,7 @@ import './MovieList.css'
 import MovieItem from '../MovieItem/MovieItem';
 import AddMovie from '../AddMovie/AddMovie';
 import AddMovieModal from '../AddMovieModal/AddMovieModal';
+import SortBy from '../SortBy/SortBy';
 function MovieList(props) {
 
     const dispatch = useDispatch();
@@ -25,6 +26,7 @@ function MovieList(props) {
                 showAddMovie && <AddMovieModal onShowModal={showModalHandler}/>
             }
             <h1 className='movie-list-title'>Movies</h1>
+            <SortBy/>
             <section className="movies">
                 {movies.map(movie => {
                     return (
