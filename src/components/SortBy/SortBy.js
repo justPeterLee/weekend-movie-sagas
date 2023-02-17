@@ -12,10 +12,11 @@ export default function SortBy() {
     fetchGenre();
   }, []);
   return (
-    <div>
-      <form>
-        <label>genre: </label>
-        <select>
+    <div className={styles.container}>
+      <form className={styles.formContainer}>
+        <label className={styles.label}>Sort By: </label>
+        <select className={styles.select}> 
+            <option> All Genres</option>
           {genres.map((genre) => (
             <option key={genre.id} value={genre.id}>{genre.name}</option>
           ))}
