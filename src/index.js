@@ -75,7 +75,8 @@ function* postNewMovie(action){
 
 function* filterGenre(action){
   try{
-    
+    const filteredMovies = yield axios.get(`/api/genre/filter/${action.payload}`);
+    yield put({ type: "SET_MOVIES", payload: filteredMovies.data });
   }catch(err){
     console.log('Error with filtering genres, ', err)
   }

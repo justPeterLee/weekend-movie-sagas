@@ -10,7 +10,11 @@ export default function SortBy() {
   };
 
   const filterGenre = (event) => {
-    dispatch({type:"FILTER_BY_GENRES", payload: event.target.value})
+    if(event.target.value !== "*"){
+        dispatch({type:"FILTER_BY_GENRES", payload: event.target.value})
+    } else{
+        dispatch({ type: 'FETCH_MOVIES' });
+    }
   }
   useEffect(() => {
     fetchGenre();
