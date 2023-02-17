@@ -8,6 +8,10 @@ export default function SortBy() {
   const fetchGenre = () => {
     dispatch({ type: "FETCH_ALL_GENRE" });
   };
+
+  const filterGenre = (event) => {
+    dispatch({type:"FILTER_BY_GENRES"})
+  }
   useEffect(() => {
     fetchGenre();
   }, []);
@@ -15,8 +19,8 @@ export default function SortBy() {
     <div className={styles.container}>
       <form className={styles.formContainer}>
         <label className={styles.label}>Sort By: </label>
-        <select className={styles.select}> 
-            <option> All Genres</option>
+        <select className={styles.select} onChange={filterGenre}> 
+            <option value={"*"}> All Genres</option>
           {genres.map((genre) => (
             <option key={genre.id} value={genre.id}>{genre.name}</option>
           ))}

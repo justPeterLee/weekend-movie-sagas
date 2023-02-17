@@ -12,3 +12,7 @@
 .select:focus{
     outline: none;
 }
+
+.conatiner{
+    width: 100%;
+}
