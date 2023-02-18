@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { useEffect, useState, useRef } from "react";
 export default function AddMovieModal(props) {
-  // instances of dependencies
+  // instances of dependencies baseImage
   const dispatch = useDispatch();
   const [closeModal, setCloseModal] = useState(true);
   const genres = useSelector((store) => store.allGenres);
@@ -21,7 +21,7 @@ export default function AddMovieModal(props) {
   const addMovieHandler = () => {
     const newMovieData = {
       title: movieTitle.current.value,
-      poster: 'baseImage',
+      poster: 'baseIsdmage',
       description: descriptionText.current.value,
     };
     console.log(newMovieData);

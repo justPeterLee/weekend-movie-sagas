@@ -35,4 +35,23 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/filter/:genre", (req,res)=>{
+  const genreId = req.params;
+  console.log(genreId)
+  const queryText = `SELECT "movies"."id","movies"."title","movies"."poster","movies"."description" FROM "movies"  
+  JOIN "movies_genres" ON "movies_genres"."movie_id" = "movies"."id"
+  JOIN "genres" ON "genres"."id" = "movies_genres"."genre_id"
+  WHERE "genres"."id" = $1
+  ORDER BY "title" ASC; `
+  pool
+    .query(queryText, [genreId.genre])
+    .then((result) => {
+      res.send(result.rows);
+    })
+    .catch((err) => {
+      console.log("ERROR: Get all movies", err);
+      res.sendStatus(500);
+    });
+})
+
 module.exports = router;

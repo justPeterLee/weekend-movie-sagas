@@ -18,7 +18,9 @@ function* rootSaga() {
   yield takeEvery("FETCH_MOVIE_DETAIL", fetchMovieDetail);
 
   yield takeEvery("FETCH_ALL_GENRE", fetchAllGenre);
-  yield takeEvery("POST_NEW_MOVIE", postNewMovie)
+  yield takeEvery("POST_NEW_MOVIE", postNewMovie);
+
+  yield takeEvery("FILTER_BY_GENRES", filterGenre);
 }
 
 function* fetchAllMovies() {
@@ -50,24 +52,35 @@ function* fetchMovieDetail(action) {
   }
 }
 
-function* fetchAllGenre(){
-    try{
-        const genres = yield axios.get(`/api/genre`)
-        console.log('asdf')
-        console.log(genres.data)
-        yield put({type: "SET_ALL_GENRES", payload: genres.data})
-    }catch (err){
-        console.log('Error with getting genres, ', err);
-    }
+function* fetchAllGenre() {
+  try {
+    const genres = yield axios.get(`/api/genre`);
+    console.log("asdf");
+    console.log(genres.data);
+    yield put({ type: "SET_ALL_GENRES", payload: genres.data });
+  } catch (err) {
+    console.log("Error with getting genres, ", err);
+  }
 }
 
-function* postNewMovie(action){
-  try{
-    console.log(action.payload)
-    yield axios.post('/api/movie', action.payload)
-    yield put({type: "FETCH_MOVIES"})
-  }catch(err){
-    console.log(err)
+function* postNewMovie(action) {
+  try {
+    console.log(action.payload);
+    yield axios.post("/api/movie", action.payload);
+    yield put({ type: "FETCH_MOVIES" });
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+function* filterGenre(action) {
+  try {
+    const filteredMovies = yield axios.get(
+      `/api/genre/filter/${action.payload}`
+    );
+    yield put({ type: "SET_MOVIES", payload: filteredMovies.data });
+  } catch (err) {
+    console.log("Error with filtering genres, ", err);
   }
 }
 // Create sagaMiddleware
@@ -77,6 +90,7 @@ const sagaMiddleware = createSagaMiddleware();
 const movies = (state = [], action) => {
   switch (action.type) {
     case "SET_MOVIES":
+      state = [];
       return action.payload;
     default:
       return state;
@@ -102,21 +116,31 @@ const movieDetail = (state = [], action) => {
   }
 };
 
-const allGenres = (state = [], action)=>{
-    switch(action.type){
-        case "SET_ALL_GENRES":
-            return action.payload;
-        default:
-            return state;
-    }
-}
+const allGenres = (state = [], action) => {
+  switch (action.type) {
+    case "SET_ALL_GENRES":
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+const filteredGenre = (state = [], action) => {
+  switch (action.type) {
+    case "SET_GENRE_FILTER_TYPE":
+      return action.payload;
+    default:
+      return state;
+  }
+};
 // Create one store that all components can use
 const storeInstance = createStore(
   combineReducers({
     movies,
     genres,
     movieDetail,
-    allGenres
+    allGenres,
+    filteredGenre
   }),
   // Add sagaMiddleware to our store
   applyMiddleware(sagaMiddleware, logger)
