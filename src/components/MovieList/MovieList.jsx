@@ -22,6 +22,7 @@ function MovieList(props) {
         if(genreFilter.length === 0){
             dispatch({ type: 'FETCH_MOVIES' });
         }
+        console.log(window.visualViewport)
     }, []);
 
     return (

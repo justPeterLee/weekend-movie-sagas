@@ -8,6 +8,7 @@ export default function AddMovieModal(props) {
   const [closeModal, setCloseModal] = useState(true);
   const genres = useSelector((store) => store.allGenres);
 
+  const height = window.visualViewport.height
   const movieTitle = useRef();
   const descriptionText = useRef();
   let appliedGenre = [];
@@ -45,6 +46,7 @@ export default function AddMovieModal(props) {
           props.onShowModal();
         }
       }}
+      style={{height:`${1100}px`}}
     >
       <div
         className={styles.container}
